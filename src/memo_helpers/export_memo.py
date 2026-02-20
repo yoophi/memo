@@ -41,7 +41,7 @@ def export_memo(path: str):
                 set htmlContent to "<html><head><meta charset=\\"UTF-8\\"></head><body>" & noteBody & "</body></html>"
                 set f to open for access (POSIX file tempHTMLPath) with write permission
                 set eof of f to 0
-                write htmlContent to f
+                write htmlContent to f as «class utf8»
                 close access f
             end if
         end repeat
