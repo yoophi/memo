@@ -25,7 +25,7 @@ def get_note():
 
     result = subprocess.run(["osascript", "-e", script], capture_output=True, text=True)
     notes_list = [
-        line.split("|", 1) for line in result.stdout.strip().split("\n") if line
+        line.split("|", 1) for line in result.stdout.strip().split("\n") if "|" in line
     ]
 
     note_map = {i + 1: (parts[0], parts[1]) for i, parts in enumerate(notes_list)}
